@@ -114,7 +114,7 @@ class Module : public ObjectRef {
 class ModuleNode : public Object {
  public:
   /*! \brief virtual destructor */
-  TVM_DLL virtual ~ModuleNode() {}
+  TVM_DLL virtual ~ModuleNode();
   /*!
    * \return The per module type key.
    * \note This key is used to for serializing custom modules.

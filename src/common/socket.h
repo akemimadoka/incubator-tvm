@@ -30,7 +30,9 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #undef NOMINMAX
+#if !defined(__GNUC__)
 using ssize_t = int;
+#endif
 #ifdef _MSC_VER
 #pragma comment(lib, "Ws2_32.lib")
 #endif

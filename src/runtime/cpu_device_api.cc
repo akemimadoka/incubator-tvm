@@ -47,7 +47,8 @@ class CPUDeviceAPI final : public DeviceAPI {
                        size_t alignment,
                        TVMType type_hint) final {
     void* ptr;
-#if _MSC_VER
+#if _MSC_VER || _WIN32
+    // _aligned_malloc is also available in mingw gcc
     ptr = _aligned_malloc(nbytes, alignment);
     if (ptr == nullptr) throw std::bad_alloc();
 #elif defined(_LIBCPP_SGX_CONFIG) || (defined(__ANDROID__) && __ANDROID_API__ < 17)

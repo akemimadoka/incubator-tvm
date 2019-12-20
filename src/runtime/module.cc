@@ -33,6 +33,9 @@
 namespace tvm {
 namespace runtime {
 
+ModuleNode::~ModuleNode() {
+}
+
 void ModuleNode::Import(Module other) {
   // specially handle rpc
   if (!std::strcmp(this->type_key(), "rpc")) {
